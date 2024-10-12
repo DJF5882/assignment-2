@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Car Reservation List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Car Type</th>
+                <th>Driver Name</th>
+                <th>Pick-up Time</th>
+                <th>Drop-off Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reservation in reservations %}
+            <tr>
+                <td>{{ reservation.car_type }}</td>
+                <td>{{ reservation.driver_name }}</td>
+                <td>{{ reservation.pick_up }}</td>
+                <td>{{ reservation.drop_off }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('make_reservation') }}">Make a new reservation</a>
+</body>
+</html>

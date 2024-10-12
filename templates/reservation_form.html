@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Reservation</title>
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-align">Make a New Reservation</h1>
+
+        <form action="{{ url_for('make_reservation') }}" method="post">
+            <!-- Car Type -->
+            <div class="input-field">
+                <label for="car_type">Car Type:</label>
+                <select name="car_type" id="car_type" required>
+                    <option value="" disabled selected>Select Car Type</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Pick-up">Pick-up</option>
+                    <option value="Van">Van</option>
+                </select>
+            </div>
+        
+            <!-- Driver Name -->
+            <div class="input-field">
+                <label for="driver_name">Driver Name:</label>
+                <input type="text" id="driver_name" name="driver_name" required>
+            </div>
+        
+            <!-- Pick-up Date/Time -->
+            <div class="input-field">
+                <label for="pick_up">Pick-up Date/Time:</label>
+                <input type="datetime-local" id="pick_up" name="pick_up" required>
+            </div>
+        
+            <!-- Drop-off Date/Time -->
+            <div class="input-field">
+                <label for="drop_off">Drop-off Date/Time:</label>
+                <input type="datetime-local" id="drop_off" name="drop_off" required>
+            </div>
+        
+            <!-- Submit Button -->
+            <div class="center-align">
+                <button type="submit">Submit Reservation</button>
+            </div>
+        </form>
+        
+        <!-- Back to Reservation List Link -->
+        <div class="center-align">
+            <a href="{{ url_for('reservation_list') }}" class="btn-flat">Back to Reservation List</a>
+        </div>        
+    </div>
+</body>
+</html>
